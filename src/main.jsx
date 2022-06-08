@@ -10,7 +10,7 @@ import global from './styles/global';
 
 import 'react-loading-skeleton/dist/skeleton.css';
 
-if (process.env.NODE_ENV === 'development') {
+if (import.meta.env.DEV) {
   worker.start();
 }
 
@@ -20,7 +20,7 @@ const queryClient = new QueryClient({
       suspense: true,
       retry: 0,
       useErrorBoundary: true,
-      // refetchInterval: 1000 * 60,
+      refetchInterval: 1000 * 60,
     },
   },
 });

@@ -1,12 +1,13 @@
 import { rest } from 'msw';
-import WEATHER from '../fixture';
+import buildWeather from '../fixture';
 
-let error = true;
+let error = false;
+
+const apiFor = (params) => `http://localhost:3000/api${params}`;
 
 const handlers = [
-  rest.get('/api/weather', (req, res, ctx) => {
+  rest.get(apiFor('/get_environment_data'), (req, res, ctx) => {
     if (error) {
-      console.log({ error });
       error = false;
       return res(
         ctx.status(500),
@@ -14,12 +15,10 @@ const handlers = [
       );
     }
 
-    console.log({ error });
-    error = true;
     return res(
       ctx.status(200),
       ctx.delay(2000),
-      ctx.json(WEATHER),
+      ctx.json(buildWeather()),
     );
   }),
 ];
