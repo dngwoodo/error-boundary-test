@@ -5,9 +5,14 @@ import Map from './Map';
 import WeatherDetails from './WeatherDetails';
 import mediaQueries from '../styles/mediaQueries';
 import loadWeather from '../api';
+import Loading from './Loading';
 
 export default function Main() {
-  const { data } = useQuery(['weather'], loadWeather);
+  const { data, isLoading } = useQuery(['weather'], loadWeather);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <main css={styleMain}>
