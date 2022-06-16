@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { LoadingWrapper } from './Loading';
 
-export default function Error({ resetErrorBoundary, error }) {
+export default function Error({ resetErrorBoundary }) {
   const handleClick = useCallback(() => {
     resetErrorBoundary();
   }, []);

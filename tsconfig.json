@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "ESNext", // 특정 문법으로 컴파일하는 옵션
+    "module": "ESNext", // 모듈 시스템 설정하는 옵션(import export 를 사용할 것이므로 ESNext 사용)
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // 컴파일에 포함될 라이브러리들을 넣는 옵션
+    "allowJs": true, // js 파일도 컴파일을 허용하는 옵션
+    "isolatedModules": true, // TS 컴파일러가 아닌 다른 컴파일러(e.g.@babel-plugin-transform-typescript)의 컴파일이 안전한지 확인해주는 옵션
+    "noEmit": true, // 타입 검사만 실행하고 트랜스 파일된 코드 출력을 막아주는 옵션
+    "jsx": "react-jsx", // .tsx 파일을 .js 파일로 변경할때 .jsx 파일을 _jsx(React 17에서 지원)으로 변경할지 설정하는 옵션
+    "useDefineForClassFields": true, // 클래스 필드를 ECMAScript-표준 시맨틱으로 내보내는 옵션
+
+    /* Strict Type-Checking Options */
+    "strict": true,
+    // "noImplicitAny": true, // any 를 쓰면 에러를 표시해주는 옵션
+    // "strictNullChecks": true, // null 과 undefined 를 구분해주는 옵션
+    // "strictFunctionTypes": true, // 함수 매개변수를 좀 더 정확하게 검사 해주는 옵션
+    // "strictBindCallApply": true, // call, bind, apply를 사용할 때 매개변수 타입을 정확하게 검사해주는 옵션
+    // "strictPropertyInitialization": true, // class 내부에서 멤버변수에 type 을 할당했을때 constructor 에 선언되어있지 않은 변수를 감지해주는 옵션
+    // "noImplicitThis": true, // this 를 사용할 때 any 타입이라면 에러 표시해주는 옵션
+    // "alwaysStrict": true, // 항상 'use strict' 를 넣어주는 옵션
+
+    /* Module Resolution Options */
+    "esModuleInterop": true, // module.exports 를 ES6 모듈시스템의 export default 처럼 쓰게 해주는 옵션 (allowSyntheticDefaultImports 옵션 자동 활성화)
+    "allowSyntheticDefaultImports": true, // module.exports 를 ES6 모듈 시스템의 export default 처럼 쓰게 해주는 옵션
+    "moduleResolution": "Node", // 모듈 해석 전략을 정하는 옵션 (nodejs 모듈 해석 메커니즘을 따름)
+    "resolveJsonModule": true, // json 확장자를 모듈로 들고 올 수 있도록 하는 옵션
+
+    /* Advanced Options */
+    "skipLibCheck": true, // declaration file 의 타입체크를 멈추는 옵션
+    "forceConsistentCasingInFileNames": true, // 파일 이름의 대소문자 구분해주는 옵션
+
+    "jsxImportSource": "@emotion/react", // react-jsx 를 사용할때 jsx와 jsxs 팩토리 함수를 가져오기 위해 사용할 모듈 지정
+
+    "typeRoots": ["./node_modules/@types"] // 컴파일에 포함되는 타입 폴더 지정
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+  ],
+}

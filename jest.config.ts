@@ -1,4 +1,6 @@
-module.exports = {
+import type { Config } from '@jest/types';
+
+const config: Config.InitialOptions = {
   testEnvironment: 'jsdom',
   transform: {
     '\\.[jt]sx?$': 'babel-jest',
@@ -7,5 +9,7 @@ module.exports = {
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
   },
   testMatch: ['**/?(*.)+(spec|test).[jt]s?(x)'],
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
+
+export default config;
