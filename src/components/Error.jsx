@@ -2,8 +2,6 @@ import { useCallback } from 'react';
 import { LoadingWrapper } from './Loading';
 
 export default function Error({ resetErrorBoundary, error }) {
-  console.error(error);
-
   const handleClick = useCallback(() => {
     resetErrorBoundary();
   }, []);

@@ -1,8 +1,9 @@
 import axios from 'axios';
+import appConfig from '../appConfig';
 
 function createInstance() {
   return axios.create({
-    baseURL: import.meta.env.VITE_API_URL,
+    baseURL: appConfig.VITE_API_URL,
     withCredentials: true,
   });
 }

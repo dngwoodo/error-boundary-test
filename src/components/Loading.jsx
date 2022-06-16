@@ -3,7 +3,7 @@ import Map from './Map';
 
 export default function Loading() {
   return (
-    <div css={LoadingWrapper}>
+    <div css={LoadingWrapper} aria-label="loading">
       <Map />
     </div>
   );

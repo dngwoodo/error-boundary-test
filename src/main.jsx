@@ -7,10 +7,9 @@ import App from './App';
 import worker from './mocks/browser';
 import reset from './styles/reset';
 import global from './styles/global';
+import appConfig from './appConfig';
 
-import 'react-loading-skeleton/dist/skeleton.css';
-
-if (import.meta.env.DEV) {
+if (appConfig.DEV) {
   worker.start();
 }
 
