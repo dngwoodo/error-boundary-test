@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Loading from './components/Loading';
 import Error from './components/Error';
+import AxiosHttpClient from './api/AxiosHttpClient';
 
 function App() {
   const { reset } = useQueryErrorResetBoundary();
@@ -15,7 +16,7 @@ function App() {
       <Header />
       <ErrorBoundary onReset={reset} FallbackComponent={Error}>
         <Suspense fallback={<Loading />}>
-          <Main />
+          <Main httpClient={new AxiosHttpClient()} />
         </Suspense>
       </ErrorBoundary>
     </>

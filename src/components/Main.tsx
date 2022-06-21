@@ -3,9 +3,10 @@ import { css } from '@emotion/react';
 
 import mediaQueries from '../styles/mediaQueries';
 import loadWeather from '../api';
+import HttpClient from '../api/HttpClient';
 
-export default function Main() {
-  const { data } = useQuery(['weather'], loadWeather);
+export default function Main({ httpClient }: { httpClient: HttpClient }) {
+  const { data } = useQuery(['weather'], () => loadWeather(httpClient));
 
   return (
     <main css={styleMain}>

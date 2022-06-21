@@ -17,11 +17,13 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: "./tsconfig.json"
+
   },
   plugins: [
     'react',
   ],
   rules: {
+    'no-underscore-dangle': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/self-closing-comp': 'off',
     'react/no-array-index-key': 'off',
