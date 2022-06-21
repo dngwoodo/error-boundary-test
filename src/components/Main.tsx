@@ -1,28 +1,16 @@
 import { useQuery } from 'react-query';
 import { css } from '@emotion/react';
-import Weather from './Weather';
-import Map from './Map';
-import WeatherDetails from './WeatherDetails';
+
 import mediaQueries from '../styles/mediaQueries';
 import loadWeather from '../api';
-import Loading from './Loading';
 
 export default function Main() {
-  const { data, isLoading } = useQuery(['weather'], loadWeather);
-
-  if (isLoading) {
-    return <Loading />;
-  }
+  const { data } = useQuery(['weather'], loadWeather);
 
   return (
     <main css={styleMain}>
-      <section css={styleMainTop}>
-        <Weather weather={data} />
-        <Map />
-      </section>
-      <section css={styleMainBottom}>
-        <WeatherDetails weatherDetail={data} />
-      </section>
+      <p>{data.temp_min}</p>
+      <p>{data.temp_max}</p>
     </main>
   );
 }

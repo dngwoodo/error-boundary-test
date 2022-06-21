@@ -1,10 +1,12 @@
 import {
   render as rtlRender, screen, waitForElementToBeRemoved,
 } from '@testing-library/react';
+import { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-const queryClient = new QueryClient({
+const generateQueryClient = () => new QueryClient({
   defaultOptions: {
     queries: {
       suspense: true,
@@ -16,8 +18,12 @@ const queryClient = new QueryClient({
 
 function AppProviders({ children }) {
   return (
-    <QueryClientProvider client={queryClient}>
-      {children}
+    <QueryClientProvider client={generateQueryClient()}>
+      <ErrorBoundary fallback={<div aria-label="error" />}>
+        <Suspense fallback={<div aria-label="loading" />}>
+          {children}
+        </Suspense>
+      </ErrorBoundary>
     </QueryClientProvider>
   );
 }

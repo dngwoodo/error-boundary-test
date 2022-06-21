@@ -1,5 +1,4 @@
-import { css } from '@emotion/react';
-import mediaQueries from '../styles/mediaQueries';
+import { css } from '@emotion/react';;
 
 export default function Header() {
   return (
@@ -21,7 +20,6 @@ const styleHeaderImageWrapper = css({
   justifyContent: 'center',
   alignItems: 'center',
   height: '100%',
-
 });
 
 const styleHeaderImage = css({

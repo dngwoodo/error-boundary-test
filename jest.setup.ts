@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { server } from './src/mocks/testServer';
+// import { server } from './src/mocks/testServer';
 
 jest.mock('./src/appConfig', () => ({
   MODE: 'development',
@@ -7,8 +7,8 @@ jest.mock('./src/appConfig', () => ({
   VITE_API_URL: 'http://localhost:3000/api',
 }));
 
-beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
-
-afterAll(() => server.close());
-
-afterEach(() => server.resetHandlers());
+// beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
+//
+// afterAll(() => server.close());
+//
+// afterEach(() => server.resetHandlers());
